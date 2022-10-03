@@ -1,16 +1,18 @@
 <app-categories></app-categories>
 <div class="main">
     <h1>Favourite Songs of {{liakos.name}}</h1>
-    <table>
+    <table class="main-table">
         <tr>
-            <td><strong>Name</strong></td>
-            <td><strong>Artist</strong></td>
-            <td><strong>Link</strong></td>
+            <td><strong><u>Name</u></strong></td>
+            <td><strong><u>Artist</u></strong></td>
+            <td><strong><u>Link</u></strong></td>
+        </tr>
+        <tr>
         </tr>
         <tr *ngFor="let n of displayData">
             <td>{{n.attributes.Name}}</td>
             <td>{{n.attributes.Artist}}</td>
             <td><a href="{{n.attributes.Youtube}}" target="_blank">YouTube</a></td>
         </tr>
-    </table>
+        </table>
 </div>
