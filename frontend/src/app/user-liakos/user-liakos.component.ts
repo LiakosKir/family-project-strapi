@@ -15,10 +15,8 @@ export class UserLiakosComponent implements OnInit {
   public displayData : any;
   ngOnInit(): void {
 
-    axios.get('http://localhost:1337/api/Songs').then(d => {
+    axios.get('http://localhost:1337/api/Songs?sort=Name').then(d => {
       this.displayData = d.data.data;
-      console.log(this.displayData);
-      
     })
 
   }
