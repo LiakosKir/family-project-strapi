@@ -1,0 +1,55 @@
+:root {
+    --primary: #494E6B;
+    --dark: #192231;
+    --light: #98878F;
+    --alt: #985e6d;
+    --primary-rgb: 73, 78, 107;
+    --dark-rgb: 25, 34, 49;
+    --light-rgb: 152, 135, 143;
+    --alt-rgb: 152, 94, 109;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--primary);
+    color: var(--dark);
+    width: 100%;
+}
+app-root {
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+app-user-liakos, app-user-george, app-user-lenaki, app-user-spiti{
+    width: 100%;
+    padding: 1% 5% 0 5%;
+    display: flex;
+    justify-content: center;
+}
+
+app-user-liakos h1, app-user-george h1, app-user-lenaki h1, app-user-spiti h1{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1%;
+    text-align: center;
+}
+
+app-categories {
+    width: 15%;
+    height: 40em;
+    text-align: center;
+}
+.bg-color-primary {
+    background-color: var(--primary);
+}
+.bg-color-dark {
+    background-color: var(--dark);
+}
+.bg-color-light {
+    background-color: var(--light);
+}
+.bg-color-alt {
+    background-color: var(--alt);
+}
