@@ -9,14 +9,24 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
-.categories-list li {
+
+.category-btn {
     font-size: 17px;
     font-family: 'Courier New', Courier, monospace;
     border: 1px solid black;
     border-radius: 20px;
     width: 11em;
-    padding: 10% 0 10% 0;
+    padding: 7% 0 7% 0;
     background-color: var(--dark);
     color: var(--light);
     box-shadow: 0 0 10px 1px black;
+    cursor: pointer;
+    position: relative;
+    left: 0px;
+}
+.category-btn:hover {
+    box-shadow: 0 0 10px 1px white;
+}
+.active {
+    box-shadow: 0 0 10px 1px white !important;
 }

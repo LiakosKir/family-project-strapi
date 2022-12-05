@@ -1,8 +1,8 @@
-.main {
+.user-main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 85%;
+    width: 100%;
 }
 .main-table {
     border: 2px solid black;
@@ -11,7 +11,21 @@
     font-size: 23px;
     width: 85%;
 }
-.main-table td {
+.main-table td, .main-table th {
     padding: 0.8em 2em 0.8em 2em;
+    text-align: left;
     /* border: 1px solid black; */
+}
+.delete-button {
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.delete-button:hover img {
+    border: 1px dotted white;
+    border-radius: 50%;
+}
+.delete-button img {
+    width: 20px;
 }

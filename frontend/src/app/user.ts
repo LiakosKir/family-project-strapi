@@ -4,3 +4,6 @@ export interface User {
     name: string;
     avatar: string;
 }
+export class GlobalComponent {
+    public static apiEndpoint: string = "http://localhost";
+}

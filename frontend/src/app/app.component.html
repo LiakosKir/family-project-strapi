@@ -1,12 +1,17 @@
 <header class="header">
     <div class="title">
-        <h1>{{title}}</h1>
+        <h1>{{title}}</h1><span>Alpha</span>
     </div>
     <div class="nav-bar">
         <ul class="nav-list">
             <li *ngFor="let x of users">
-                <button routerLink="/user-{{x.username}}-component" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="onClickUser(x.username)" class="nav-item {{x.avatar}}">
+                <button routerLink="/user-{{x.username}}" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="onClickUser(x.username)" class="nav-item {{x.avatar}}">
                     <span>{{ x.name }}</span>
+                </button>
+            </li>
+            <li>
+                <button routerLink="/user-spiti" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="onClickUser('spiti')" class="nav-item spiti-pic">
+                    <span>Σπίτι</span>
                 </button>
             </li>
         </ul>
@@ -14,27 +19,34 @@
     <div class="current-user">
         <div class="theme-color">
             <span style="color: var(--light);">Theme</span>
+            <!-- <button class="bg-color-primary" *ngIf="bodycolor!='primary'" (click)="bodyColor(1)"></button>
+            <button class="bg-color-dark" *ngIf="bodycolor!='dark'" (click)="bodyColor(2)"></button>
+            <button class="bg-color-light" *ngIf="bodycolor!='light'" (click)="bodyColor(3)"></button>
+            <button class="bg-color-alt" *ngIf="bodycolor!='alt'" (click)="bodyColor(4)"></button> -->
             <button class="bg-color-primary" *ngIf="bodycolor!='primary'" (click)="bodyColorPrimary()"></button>
             <button class="bg-color-dark" *ngIf="bodycolor!='dark'" (click)="bodyColorDark()"></button>
             <button class="bg-color-light" *ngIf="bodycolor!='light'" (click)="bodyColorLight()"></button>
             <button class="bg-color-alt" *ngIf="bodycolor!='alt'" (click)="bodyColorAlt()"></button>
         </div>
-        <div class="current-user" *ngIf="currentUser==''">
-            <button [ngClass]="{'nav-item' : currentUser==''}"><span>No User</span></button>
+        <div class="current-user" *ngIf="currentUser == ''">
+            <button [ngClass]="{'nav-item' : currentUser == ''}"><span>No User</span></button>
         </div>
-        <div class="current-user" *ngIf="currentUser=='liakos'">
+        <div class="current-user" *ngIf="currentUser == 'liakos'">
             <span class="welcome">Welcome Liakos</span><button class="nav-item liakos-pic" (click)="onClickExit()" routerLink=""><span>Έξοδος</span></button>
         </div>
-        <div class="current-user" *ngIf="currentUser=='george'">
+        <div class="current-user" *ngIf="currentUser == 'george'">
             <span class="welcome">Welcome George</span><button class="nav-item george-pic" (click)="onClickExit()" routerLink=""><span>Έξοδος</span></button>
         </div>
-        <div class="current-user" *ngIf="currentUser=='lenaki'">
+        <div class="current-user" *ngIf="currentUser == 'lenaki'">
             <span class="welcome">Welcome Λενάκι</span><button class="nav-item lenaki-pic" (click)="onClickExit()" routerLink=""><span>Έξοδος</span></button>
         </div>
-        <div class="current-user" *ngIf="currentUser=='spiti'">
+        <div class="current-user" *ngIf="currentUser == 'spiti'">
             <button class="nav-item spiti-pic" (click)="onClickExit()" routerLink=""><span>Έξοδος</span></button>
         </div>
     </div>
 </header>
 <hr>
-<router-outlet></router-outlet>
+<div class="main">
+    <app-categories *ngIf="router.url.includes('user-liakos') || router.url.includes('user-george') || router.url.includes('user-lenaki')"></app-categories>
+    <router-outlet></router-outlet>
+</div>

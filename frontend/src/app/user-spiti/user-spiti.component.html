@@ -1,1 +1,18 @@
-<h1>Σπίτι Content</h1>
+<h1 class="title">Notes</h1>
+<ul class="notes-list">
+    <li *ngFor="let n of displayNotes">
+        <span class="note-date"><strong>{{n.attributes.createdAt | date}}</strong></span>
+        <div class="note-desc" *ngIf="show != n.id">
+            <p>{{n.attributes.Description}}</p>
+            <div>
+                <button class="note-edit-btn" (click)="toggle(n.id)">Edit</button>
+                <button >Delete</button>
+            </div>
+        </div>
+        <form class="note-config" *ngIf="show == n.id" [formGroup]="modifiedData" (ngSubmit)="onSubmit(modifiedData.value)">
+            <textarea cols="20" rows="7" formControlName="Description" name="textareaname">{{n.attributes.Description}}</textarea>
+            <input type="submit" value="Save">
+        </form>
+    </li>
+    <li class="add-note"><span>Add</span><button routerLink="/user-spiti/add-note"><img src="../../assets/img/add-icon.png"></button></li>
+</ul>

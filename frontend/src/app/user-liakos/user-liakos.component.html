@@ -1,18 +1,72 @@
-<app-categories></app-categories>
-<div class="main">
+
+<!-- Show Favourite Songs of Liakos -->
+<div class="user-main" *ngIf="router.url === '/user-liakos/fav-songs'">
     <h1>Favourite Songs of {{liakos.name}}</h1>
+    
     <table class="main-table">
         <tr>
-            <td><strong><u>Name</u></strong></td>
-            <td><strong><u>Artist</u></strong></td>
-            <td><strong><u>Link</u></strong></td>
+            <th><strong><u>Name</u></strong></th>
+            <th><button (click)="sortArtist()"><strong><u>Artist</u></strong></button></th>
+            <th><strong><u>Link</u></strong></th>
+            <th></th>
         </tr>
         <tr>
         </tr>
-        <tr *ngFor="let n of displayData">
-            <td>{{n.attributes.Name}}</td>
-            <td>{{n.attributes.Artist}}</td>
-            <td><a href="{{n.attributes.Youtube}}" target="_blank">YouTube</a></td>
+        <tr *ngFor="let s of displaySongs">
+            <td>{{s.attributes.Name}}</td>
+            <td>{{s.attributes.Artist}}</td>
+            <td><a href="{{s.attributes.Youtube}}" target="_blank">YouTube</a></td>
+            <td><button class="delete-button" id="{{s.attributes.Name}}" (click)="delSong(s.id)"><img src="../../assets/img/delete-icon2.png"></button></td> <!-- DELETE SONG -->
         </tr>
+    </table>
+
+    <!--  Add New Song  -->
+    <form [formGroup]="modifiedData" (ngSubmit)="onSubmit(modifiedData.value)">
+        <table class="main-table">
+            <tr>
+                <td><input id="Name" type="text" formControlName="Name" placeholder="Song" required></td>
+                <td><input id="Artist" type="text" formControlName="Artist" placeholder="Artist"></td>
+                <td><input id="Youtube" type="text" formControlName="Youtube" placeholder="Youtube url"></td>
+                <td><input type="submit" value="Add"></td>
+            </tr>
         </table>
+    </form>
+</div>
+
+<!-- Show Favourite Games of Liakos -->
+<div class="main" *ngIf="router.url === '/user-liakos/fav-games'">
+    <h1>Favourite Games of {{liakos.name}}</h1>
+    <table class="main-table">
+        <tr>
+            <th><strong><u>Name</u></strong></th>
+            <th><strong><u>Company</u></strong></th>
+            <th><strong><u>Link</u></strong></th>
+        </tr>
+        <tr>
+        </tr>
+        <tr *ngFor="let g of displayGames">
+            <td>{{g.attributes.Name}}</td>
+            <td>{{g.attributes.Company}}</td>
+            <td><a href="{{g.attributes.Youtube}}" target="_blank">YouTube</a></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Show Favourite Movies of Liakos -->
+<div class="main" *ngIf="router.url === '/user-liakos/fav-movies'">
+    <h1>Favourite Movies of {{liakos.name}}</h1>
+    <table class="main-table">
+        <tr>
+            <th><strong><u>Name</u></strong></th>
+            <th><strong><u>Year</u></strong></th>
+            <th><strong><u>Trailer</u></strong></th>
+        </tr>
+        <tr>
+        </tr>
+        <tr *ngFor="let m of displayMovies">
+            <td>{{m.attributes.Name}}</td>
+            <td>{{m.attributes.Year}}</td>
+            <td><a href="{{m.attributes.Trailer}}" target="_blank">YouTube</a></td>
+        </tr>
+    </table>
 </div>
