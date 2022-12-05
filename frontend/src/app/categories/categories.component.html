@@ -1,7 +1,9 @@
 <div class="categories">
     <ul class="categories-list">
-        <li>Favourite Songs</li>
-        <li>Favourite Games</li>
-        <li>Favourite Movies</li>
+        <li *ngFor="let c of categories">
+            <button class="category-btn" *ngIf="router.url.includes('liakos')" routerLink="/user-liakos/fav-{{c.pluralName}}" routerLinkActive="active" ariaCurrentWhenActive="page">Favourite {{c.displayName}}</button>
+            <button class="category-btn" *ngIf="router.url.includes('george')" routerLink="/user-george/fav-{{c.pluralName}}" routerLinkActive="active" ariaCurrentWhenActive="page">Favourite {{c.displayName}}</button>
+            <button class="category-btn" *ngIf="router.url.includes('lenaki')" routerLink="/user-lenaki/fav-{{c.pluralName}}" routerLinkActive="active" ariaCurrentWhenActive="page">Favourite {{c.displayName}}</button>
+        </li>
     </ul>
 </div>

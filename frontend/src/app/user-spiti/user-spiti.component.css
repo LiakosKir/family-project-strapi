@@ -1,0 +1,49 @@
+.title {
+    width: 100%;
+}
+.notes-list {
+    width: 80%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.notes-list li{
+    width: 198px;
+    height: 210px;
+    background-image: url(../../assets/img/sticky-note.png);
+    background-size:contain;
+    padding: 30px 13px 25px 13px;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.notes-list li p {
+    width: 170px;
+    height: 120px;
+    color: black;
+}
+.note-date {
+    position: relative;
+    top: -10px;
+    left: -60px;
+    font-size: 11px;
+    color: gray;
+}
+.add-note {
+    opacity: 0.5;
+}
+.add-note:hover {
+    opacity: 1;
+}
+.add-note button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.add-note button img {
+    width: 30px;
+}

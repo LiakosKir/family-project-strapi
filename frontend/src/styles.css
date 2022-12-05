@@ -23,11 +23,18 @@ app-root {
     padding: 0;
     height: auto;
 }
-app-user-liakos, app-user-george, app-user-lenaki, app-user-spiti{
-    width: 100%;
-    padding: 1% 5% 0 5%;
+app-user-liakos, app-user-george, app-user-lenaki {
+    width: 70%;
+    padding: 0 0 0 0;
     display: flex;
     justify-content: center;
+}
+app-user-spiti {
+    width: 100%;
+    padding: 0 0 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 app-user-liakos h1, app-user-george h1, app-user-lenaki h1, app-user-spiti h1{
@@ -37,9 +44,18 @@ app-user-liakos h1, app-user-george h1, app-user-lenaki h1, app-user-spiti h1{
 }
 
 app-categories {
-    width: 15%;
+    width: 20%;
     height: 40em;
     text-align: center;
+}
+
+note-config {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
 }
 .bg-color-primary {
     background-color: var(--primary);
